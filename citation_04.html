@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citation Stylée</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400&display=swap');
+
+    /*Typographie & Couleurs*/
+    body {
+      font-family: "Public Sans", sans-serif;
+      background: #f8f8fa;
+      color: #222;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 200;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      font-style: italic;
+      margin: 0 0 1rem 0;
+    }
+
+    p {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    /*Mise en page*/
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .quote-container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      max-width: 40ch;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .divider {
+      width: 50px;
+      height: 1px;
+      background: #ddd;
+      margin: 0 auto 1rem auto;
+      border-radius: 2px;
+    }
+
+    /*Animation*/
+
+    /* @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    } */
+  </style>
+
+<script>
+  const quote = document.querySelector('.quote-container');
+
+  // Position initiale
+  let x = 50;
+  let y = 50;
+
+  // Vitesse
+  let vx = 2;
+  let vy = 2;
+
+  function animate() {
+    const maxX = window.innerWidth - quote.offsetWidth;
+    const maxY = window.innerHeight - quote.offsetHeight;
+
+    x += vx;
+    y += vy;
+
+    // Collision avec les bords
+    if (x <= 0 || x >= maxX) vx *= -1;
+    if (y <= 0 || y >= maxY) vy *= -1;
+
+    // Mise à jour de la position (avec top/left)
+    quote.style.left = x + "px";
+    quote.style.top = y + "px";
+
+    requestAnimationFrame(animate);
+  }
+
+  // Initialisation CSS si jamais
+  quote.style.position = "absolute";
+
+  animate();
+</script>
+
+</head>
+
+<body>
+  <div class="quote-container">
+    <h1>“Le design, c’est l’art de rendre l’utile séduisant… et de convaincre le client que c’était son idée.”</h1>
+    <div class="divider"></div>
+    <p>Anonyme</p>
+  </div>
+</body>
+</html>
