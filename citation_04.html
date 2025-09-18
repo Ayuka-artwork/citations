@@ -61,7 +61,7 @@
 
     /*Animation*/
 
-    /* @keyframes fadeIn {
+    @keyframes fadeIn {
       from {
         opacity: 0;
         transform: scale(0.95);
@@ -70,43 +70,8 @@
         opacity: 1;
         transform: scale(1);
       }
-    } */
+    }
   </style>
-
-<script>
-  const quote = document.querySelector('.quote-container');
-
-  // Position initiale
-  let x = 50;
-  let y = 50;
-
-  // Vitesse
-  let vx = 2;
-  let vy = 2;
-
-  function animate() {
-    const maxX = window.innerWidth - quote.offsetWidth;
-    const maxY = window.innerHeight - quote.offsetHeight;
-
-    x += vx;
-    y += vy;
-
-    // Collision avec les bords
-    if (x <= 0 || x >= maxX) vx *= -1;
-    if (y <= 0 || y >= maxY) vy *= -1;
-
-    // Mise à jour de la position (avec top/left)
-    quote.style.left = x + "px";
-    quote.style.top = y + "px";
-
-    requestAnimationFrame(animate);
-  }
-
-  // Initialisation CSS si jamais
-  quote.style.position = "absolute";
-
-  animate();
-</script>
 
 </head>
 
