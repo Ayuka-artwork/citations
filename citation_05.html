@@ -75,7 +75,11 @@
 
       function changeColor() {
         const colors = ["#ffffff", "#fef3c7", "#e0f2fe", "#e9d5ff", "#dcfce7", "#ffe4e6"];
+        const tmp = quote.style.background;
+        while (quote.style.background == tmp) {
         quote.style.background = colors[Math.floor(Math.random() * colors.length)];
+        }
+        
       }
 
       function animate() {
