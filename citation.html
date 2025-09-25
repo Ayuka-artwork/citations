@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400&display=swap');
+
+    body {
+      font-family: "Public Sans", sans-serif;
+      background: #f8f8fa;
+      margin: 0;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+
+    .quote-container {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      max-width: 40ch;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    h1 {
+      font-weight: 200;
+      font-size: 1.8rem;
+      line-height: 1.3;
+    }
+
+    p {
+      color: #888;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote-container">
+    <h1 id="quote-text"></h1>
+    <p id="quote-author"></p>
+  </div>
+
+  <script>
+    // Les mêmes 20 citations que dans index.html
+    const citations = [
+      { texte: "Le design, c’est l’art de rendre l’utile séduisant… et de convaincre le client que c’était son idée.", auteur: "Anonyme" },
+      { texte: "Un bon design, c'est comme une bonne blague : si tu dois l'expliquer, ce n'est pas si bon.", auteur: "Martin LeBlanc" },
+      { texte: "Les graphistes ne font pas de fautes de frappe, ils font des 'versions alternatives'.", auteur: "Anonyme" },
+      // ...
+    ];
+
+    // Récupération de l'index dans l'URL
+    const params = new URLSearchParams(window.location.search);
+    const index = parseInt(params.get("index") || "0", 10);
+
+    document.getElementById("quote-text").textContent = citations[index].texte;
+    document.getElementById("quote-author").textContent = citations[index].auteur;
+
+    // Animation façon DVD
+    const quote = document.querySelector('.quote-container');
+    let x = 50, y = 50, vx = 2, vy = 2;
+
+    function changeColor() {
+      const colors = ["#ffffff", "#fef3c7", "#e0f2fe", "#e9d5ff", "#dcfce7", "#ffe4e6"];
+      quote.style.background = colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function animate() {
+      const maxX = window.innerWidth - quote.offsetWidth;
+      const maxY = window.innerHeight - quote.offsetHeight;
+
+      x += vx;
+      y += vy;
+
+      if (x <= 0 || x >= maxX) { vx *= -1; changeColor(); }
+      if (y <= 0 || y >= maxY) { vy *= -1; changeColor(); }
+
+      quote.style.left = x + "px";
+      quote.style.top = y + "px";
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("load", animate);
+  </script>
+</body>
+</html>
