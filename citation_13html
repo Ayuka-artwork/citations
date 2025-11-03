@@ -31,7 +31,7 @@
   </style>
 </head>
 <body>
-  <h1>« L’arc-en-ciel suit toujours la tempête. »</h1>
+  <h1>“L’arc-en-ciel suit toujours la tempête.”</h1>
 
   <nav id="projectnav"><a href="index.html">home</a></nav>
   <link rel="stylesheet" href="projectnav.css">

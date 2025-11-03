@@ -3,55 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 6</title>
+  <title>Citation 10</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: "Public Sans", sans-serif;
-      background: #f8f8fa;
+      font-family: 'Raleway', sans-serif;
+      background: #f7fafc;
+      color: #222;
+      height: 100vh;
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
       text-align: center;
+      transition: background 1.2s ease;
     }
 
-    .quote-container {
-      background: white;
-      padding: 2rem 3rem;
+    h1 {
+      font-size: 2rem;
+      max-width: 35ch;
+      padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: background 1.2s ease, color 1.2s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      background: #ffffff;
     }
 
     button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
+      position: absolute;
+      bottom: 40px;
+      padding: 0.6rem 1.2rem;
       border: none;
-      border-radius: 8px;
-      background: #333;
+      background: #2b6cb0;
       color: white;
+      border-radius: 0.5rem;
+      font-family: inherit;
       cursor: pointer;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background: #ff0077;
+      background: #2c5282;
     }
   </style>
 </head>
 <body>
-  <div class="quote-container">
-    <h1 id="quote">« La simplicité est la sophistication suprême. »</h1>
-    <p>– Léonard de Vinci</p>
-    <button onclick="changeColor()">Changer la couleur</button>
-  </div>
+  <h1 id="quote">« Change tes pensées et tu changeras ton monde. »</h1>
+  <button id="colorBtn">Changer la couleur</button>
 
   <script>
-    function changeColor() {
-      const colors = ["#ff0077", "#0077ff", "#22c55e", "#ffa500", "#9333ea"];
-      document.getElementById("quote").style.color =
-        colors[Math.floor(Math.random() * colors.length)];
-    }
+    const quote = document.getElementById("quote");
+    const btn = document.getElementById("colorBtn");
+
+    const colors = [
+      {bg: "#fff5f7", text: "#97266d"},
+      {bg: "#e6fffa", text: "#234e52"},
+      {bg: "#ebf8ff", text: "#2a4365"},
+      {bg: "#faf5ff", text: "#44337a"},
+      {bg: "#fffff0", text: "#744210"}
+    ];
+
+    btn.addEventListener("click", () => {
+      const random = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.background = random.bg;
+      quote.style.color = random.text;
+      quote.style.background = "#fff";
+    });
   </script>
 
   <nav id="projectnav"><a href="index.html">home</a></nav>
