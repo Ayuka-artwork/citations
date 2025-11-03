@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 7</title>
+  <title>Citation 9</title>
   <style>
     body {
       font-family: "Public Sans", sans-serif;
-      background: #f3f4f6;
+      background: #f0f0f0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,12 +21,12 @@
       padding: 2rem 3rem;
       border-radius: 1rem;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      opacity: 0;
-      transition: opacity 2s ease;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
     }
 
-    .quote-container.visible {
-      opacity: 1;
+    .flipped {
+      transform: rotateY(180deg);
     }
 
     button {
@@ -34,7 +34,7 @@
       padding: 0.5rem 1rem;
       border: none;
       border-radius: 8px;
-      background: #222;
+      background: #000;
       color: white;
       cursor: pointer;
     }
@@ -42,14 +42,14 @@
 </head>
 <body>
   <div class="quote-container" id="quoteBox">
-    <h1>« Le futur appartient à ceux qui croient à la beauté de leurs rêves. »</h1>
-    <p>– Eleanor Roosevelt</p>
-    <button onclick="showQuote()">Afficher la citation</button>
+    <h1>« Il faut toujours viser la lune, car même en cas d’échec, on atterrit dans les étoiles. »</h1>
+    <p>– Oscar Wilde</p>
+    <button onclick="rotateQuote()">Tourner</button>
   </div>
 
   <script>
-    function showQuote() {
-      document.getElementById("quoteBox").classList.toggle("visible");
+    function rotateQuote() {
+      document.getElementById("quoteBox").classList.toggle("flipped");
     }
   </script>
 

@@ -3,54 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 7</title>
+  <title>Citation 15</title>
   <style>
     body {
-      font-family: "Public Sans", sans-serif;
-      background: #f3f4f6;
+      font-family: sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
-      text-align: center;
+      background: #fffbea;
     }
 
-    .quote-container {
-      background: white;
-      padding: 2rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    span {
       opacity: 0;
-      transition: opacity 2s ease;
+      animation: fadeIn 1s forwards;
     }
 
-    .quote-container.visible {
-      opacity: 1;
-    }
-
-    button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 8px;
-      background: #222;
-      color: white;
-      cursor: pointer;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div class="quote-container" id="quoteBox">
-    <h1>« Le futur appartient à ceux qui croient à la beauté de leurs rêves. »</h1>
-    <p>– Eleanor Roosevelt</p>
-    <button onclick="showQuote()">Afficher la citation</button>
-  </div>
+  <h1 id="quote"></h1>
 
   <script>
-    function showQuote() {
-      document.getElementById("quoteBox").classList.toggle("visible");
-    }
+    const quote = "« La patience est la clé du succès silencieux. »".split(" ");
+    const quoteBox = document.getElementById("quote");
+
+    quote.forEach((word, i) => {
+      const span = document.createElement("span");
+      span.textContent = word + " ";
+      span.style.animationDelay = `${i * 0.3}s`;
+      quoteBox.appendChild(span);
+    });
   </script>
 
   <nav id="projectnav"><a href="index.html">home</a></nav>

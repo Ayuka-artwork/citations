@@ -1,143 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercice – Citations dynamiques</title>
-    <link rel="stylesheet" href="https://use.typekit.net/eby2vmc.css">
-    <style>
-        body {
-            font-family: "source-sans-pro", sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citation 6</title>
+  <style>
+    body {
+      font-family: "Public Sans", sans-serif;
+      background: #f8f8fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
 
-        h1 {
-            margin-top: 30px;
-            color: #333;
-        }
+    .quote-container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .citations-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px;
-            width: 90%;
-            max-width: 1000px;
-        }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-        .citation {
-            border: 2px solid rgba(0,0,0,0.2);
-            border-radius: 12px;
-            padding: 20px;
-            background: white;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* --- Différents concepts visuels --- */
-        .gradient { background: linear-gradient(135deg, #ff9a9e, #fad0c4); color: #222; }
-        .shadow { text-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
-        .italic { font-style: italic; }
-        .rotate:hover { transform: rotate(-3deg); }
-        .bold { font-weight: 900; }
-        .outline { -webkit-text-stroke: 1px #000; color: transparent; }
-        .uppercase { text-transform: uppercase; }
-        .fade:hover { opacity: 0.7; }
-        .borderflash:hover { border-color: #ff00cc; box-shadow: 0 0 10px #ff00cc; }
-        .blur:hover { filter: blur(2px); }
-        .scale:hover { transform: scale(1.05); }
-        .monospace { font-family: monospace; }
-        .wave { animation: wave 2s infinite ease-in-out; }
-        .underline { text-decoration: underline; }
-        .spacing { letter-spacing: 4px; }
-        .glow { color: #fff; text-shadow: 0 0 10px #ff0077, 0 0 20px #ff0077; }
-
-        @keyframes wave {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        button {
-            margin: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
-
-        /* Footer nav */
-        #projectnav {
-            width: 100%;
-            text-align: center;
-            margin-top: auto;
-            padding: 15px;
-            background: #eaeaea;
-            border-top: 1px solid #ccc;
-        }
-
-        #projectnav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
-        #projectnav a:hover {
-            color: #ff0077;
-        }
-    </style>
+    button:hover {
+      background: #ff0077;
+    }
+  </style>
 </head>
 <body>
+  <div class="quote-container">
+    <h1 id="quote">« La simplicité est la sophistication suprême. »</h1>
+    <p>– Léonard de Vinci</p>
+    <button onclick="changeColor()">Changer la couleur</button>
+  </div>
 
-    <h1>16 Citations et Concepts</h1>
+  <script>
+    function changeColor() {
+      const colors = ["#ff0077", "#0077ff", "#22c55e", "#ffa500", "#9333ea"];
+      document.getElementById("quote").style.color =
+        colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
 
-    <button onclick="changerCouleurs()">Changer les couleurs</button>
-
-    <div class="citations-container">
-        <div class="citation gradient">“La simplicité est la sophistication suprême.” — Léonard de Vinci</div>
-        <div class="citation shadow">“La créativité, c’est l’intelligence qui s’amuse.” — Albert Einstein</div>
-        <div class="citation italic">“Le design n’est pas ce que l’on voit, mais ce qu’on ressent.” — Inconnu</div>
-        <div class="citation rotate">“Rien ne se perd, tout se transforme.” — Lavoisier</div>
-        <div class="citation bold">“Fais de ta vie un rêve, et d’un rêve une réalité.” — Saint-Exupéry</div>
-        <div class="citation outline">“L’art lave notre âme de la poussière du quotidien.” — Picasso</div>
-        <div class="citation uppercase">“LE TEMPS FILE, L’ART RESTE.” — Horace</div>
-        <div class="citation fade">“Le silence est aussi une réponse.” — Proverbe</div>
-        <div class="citation borderflash">“Tout ce que tu peux imaginer est réel.” — Picasso</div>
-        <div class="citation blur">“Ce qui compte, c’est de semer.” — Proverbe</div>
-        <div class="citation scale">“L’imagination gouverne le monde.” — Napoléon</div>
-        <div class="citation monospace">“Le code est une forme d’art.” — Inconnu</div>
-        <div class="citation wave">“Les mots ont du pouvoir.” — Inconnu</div>
-        <div class="citation underline">“Apprends les règles, puis brise-les.” — Picasso</div>
-        <div class="citation spacing">“Le vide donne forme au plein.” — Lao Tseu</div>
-        <div class="citation glow">“L’art est une lumière dans l’obscurité.” — Inconnu</div>
-    </div>
-
-    <nav id="projectnav"><a href="index.html">home</a></nav>
-    <link rel="stylesheet" href="projectnav.css">
-
-    <script>
-        function changerCouleurs() {
-            const couleurs = ["#ff0077", "#0077ff", "#00cc88", "#ffa500", "#9b59b6", "#e84393"];
-            const citations = document.querySelectorAll(".citation");
-            citations.forEach(citation => {
-                const couleur = couleurs[Math.floor(Math.random() * couleurs.length)];
-                citation.style.color = couleur;
-            });
-        }
-    </script>
+  <nav id="projectnav"><a href="index.html">home</a></nav>
+  <link rel="stylesheet" href="projectnav.css">
 </body>
 </html>
