@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 12</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      background: #e0e7ff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      margin: 0;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 12</title>
 
-    h1 {
-      animation: shake 0.15s infinite;
-    }
+	<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 
-    @keyframes shake {
-      0%, 100% { transform: translate(0, 0); }
-      25% { transform: translate(-2px, 1px); }
-      50% { transform: translate(2px, -1px); }
-      75% { transform: translate(-1px, -2px); }
-    }
-  </style>
+	<style>
+		body {
+			font-family: "Caveat", cursive;
+			background: #e0e7ff;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			text-align: center;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 2.2rem;
+			max-width: 50ch;
+			animation: shake 0.15s infinite;
+		}
+
+		@keyframes shake {
+			0%, 100% { transform: translate(0, 0); }
+			25% { transform: translate(-2px, 1px); }
+			50% { transform: translate(2px, -1px); }
+			75% { transform: translate(-1px, -2px); }
+		}
+
+		p {
+			font-size: 1.1rem;
+			color: #444;
+			margin-top: 0.5rem;
+		}
+	</style>
 </head>
 <body>
-  <h1>“Il n’y a pas d’ascenseur vers le succès, il faut prendre les escaliers.”</h1>
+	<div class="quote-container">
+		<h1>Il n’y a pas d’ascenseur vers le succès, il faut prendre les escaliers.</h1>
+		<p>Auteur inconnu</p>
+	</div>
 
-  <nav id="projectnav"><a href="index.html">home</a></nav>
-  <link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 14</title>
-  <style>
-    body {
-      background: linear-gradient(#e0f7fa, #fff);
-      font-family: "Poppins", sans-serif;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 14</title>
 
-    h1 {
-      font-size: 2rem;
-      animation: float 3s ease-in-out infinite;
-    }
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-  </style>
+	<style>
+		body {
+			background: linear-gradient(#e0f7fa, #fff);
+			font-family: "Quicksand", sans-serif;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			overflow: hidden;
+			text-align: center;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 2rem;
+			color: #333;
+			max-width: 50ch;
+			animation: float 3s ease-in-out infinite;
+		}
+
+		@keyframes float {
+			0%, 100% { transform: translateY(0); }
+			50% { transform: translateY(-10px); }
+		}
+	</style>
 </head>
 <body>
-  <h1>“Laisse ton esprit flotter au-dessus des soucis.”</h1>
+	<div class="quote-container">
+		<h1>“Laisse ton esprit flotter au-dessus des soucis.”</h1>
+	</div>
 
-  <nav id="projectnav"><a href="index.html">home</a></nav>
-  <link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

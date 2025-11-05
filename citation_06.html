@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 10</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Raleway', sans-serif;
-      background: #f7fafc;
-      color: #222;
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      transition: background 1.2s ease;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 10</title>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@500&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Merriweather', serif;
+			background: linear-gradient(135deg, #f7fafc, #edf2f7);
+			color: #2d3748;
+			height: 100vh;
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			overflow: hidden;
+			transition: background 1s ease, color 1s ease;
+		}
 
-    h1 {
-      font-size: 2rem;
-      max-width: 35ch;
-      padding: 2rem;
-      border-radius: 1rem;
-      transition: background 1.2s ease, color 1.2s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      background: #ffffff;
-    }
+		.quote-box {
+			background: rgba(255, 255, 255, 0.25);
+			backdrop-filter: blur(15px);
+			-webkit-backdrop-filter: blur(15px);
+			border-radius: 1.5rem;
+			border: 1px solid rgba(255, 255, 255, 0.4);
+			padding: 2.5rem 3rem;
+			max-width: 50ch;
+			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+			transition: all 0.6s ease;
+		}
 
-    button {
-      position: absolute;
-      bottom: 40px;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      background: #2b6cb0;
-      color: white;
-      border-radius: 0.5rem;
-      font-family: inherit;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+		.quote-box:hover {
+			transform: scale(1.03);
+			box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+		}
 
-    button:hover {
-      background: #2c5282;
-    }
-  </style>
+		h1 {
+			font-size: 2rem;
+			margin: 0;
+			line-height: 1.4;
+		}
+
+		button {
+			margin-top: 2rem;
+			padding: 0.7rem 1.5rem;
+			border: none;
+			border-radius: 999px;
+			background: #2b6cb0;
+			color: white;
+			font-size: 1rem;
+			letter-spacing: 0.03em;
+			font-family: inherit;
+			cursor: pointer;
+			transition: background 0.3s, transform 0.2s;
+		}
+
+		button:hover {
+			background: #2c5282;
+			transform: translateY(-2px);
+		}
+
+	</style>
 </head>
 <body>
-  <h1 id="quote">« Change tes pensées et tu changeras ton monde. »</h1>
-  <button id="colorBtn">Changer la couleur</button>
+	<div class="quote-box">
+		<h1 id="quote">“Change tes pensées et tu changeras ton monde.”</h1>
+		<button id="colorBtn">Changer la couleur</button>
+	</div>
 
-  <script>
-    const quote = document.getElementById("quote");
-    const btn = document.getElementById("colorBtn");
+	<script>
+		const quote = document.getElementById("quote");
+		const btn = document.getElementById("colorBtn");
 
-    const colors = [
-      {bg: "#fff5f7", text: "#97266d"},
-      {bg: "#e6fffa", text: "#234e52"},
-      {bg: "#ebf8ff", text: "#2a4365"},
-      {bg: "#faf5ff", text: "#44337a"},
-      {bg: "#fffff0", text: "#744210"}
-    ];
+		const colors = [
+			{ bg: "linear-gradient(135deg, #fff5f7, #fed7e2)", text: "#97266d" },
+			{ bg: "linear-gradient(135deg, #e6fffa, #b2f5ea)", text: "#234e52" },
+			{ bg: "linear-gradient(135deg, #ebf8ff, #bee3f8)", text: "#2a4365" },
+			{ bg: "linear-gradient(135deg, #faf5ff, #e9d8fd)", text: "#44337a" },
+			{ bg: "linear-gradient(135deg, #fffff0, #faf089)", text: "#744210" }
+		];
 
-    btn.addEventListener("click", () => {
-      const random = colors[Math.floor(Math.random() * colors.length)];
-      document.body.style.background = random.bg;
-      quote.style.color = random.text;
-      quote.style.background = "#fff";
-    });
-  </script>
+		btn.addEventListener("click", () => {
+			const random = colors[Math.floor(Math.random() * colors.length)];
+			document.body.style.background = random.bg;
+			quote.style.color = random.text;
+		});
+	</script>
 
-  <nav id="projectnav"><a href="index.html">home</a></nav>
-  <link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

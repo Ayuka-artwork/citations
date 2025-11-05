@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 16</title>
-  <style>
-    body {
-      font-family: "Arial", sans-serif;
-      background: #fef2f2;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 16</title>
 
-    h1 {
-      animation: spin 8s linear infinite;
-    }
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap" rel="stylesheet">
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-  </style>
+	<style>
+		body {
+			font-family: "Fredoka", sans-serif;
+			background: #fef2f2;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 2rem;
+			max-width: 50ch;
+			color: #c62828;
+			animation: spin 8s linear infinite;
+		}
+
+		@keyframes spin {
+			from { transform: rotate(0deg); }
+			to { transform: rotate(360deg); }
+		}
+	</style>
 </head>
 <body>
-  <h1>« Tourne-toi vers le soleil et l’ombre sera derrière toi. »</h1>
+	<div class="quote-container">
+		<h1>“Tourne-toi vers le soleil et l’ombre sera derrière toi.”</h1>
+	</div>
 
-  <nav id="projectnav"><a href="index.html">home</a></nav>
-  <link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

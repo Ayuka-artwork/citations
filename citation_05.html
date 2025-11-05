@@ -1,106 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 5</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400&display=swap');
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 5</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400&display=swap');
 
-    body {
-      font-family: "Public Sans", sans-serif;
-      background: #f8f8fa;
-      color: #222;
-      margin: 0;
-      overflow: hidden;
-      position: relative;
-      height: 100vh;
-      width: 100vw;
-    }
+		body {
+			font-family: "Public Sans", sans-serif;
+			background: #f8f8fa;
+			color: #222;
+			margin: 0;
+			overflow: hidden;
+			position: relative;
+			height: 100vh;
+			width: 100vw;
+		}
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 200;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-      font-style: italic;
-      margin: 0 0 1rem 0;
-    }
+		h1 {
+			font-size: 1.8rem;
+			font-weight: 200;
+			letter-spacing: -0.01em;
+			line-height: 1.3;
+			font-style: italic;
+			margin: 0 0 1rem 0;
+		}
 
-    p {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0;
-    }
+		p {
+			font-size: 0.9rem;
+			font-weight: 400;
+			color: #888;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			margin: 0;
+		}
 
-    .quote-container {
-      position: absolute;
-      top: 50px;
-      left: 50px;
-      background: white;
-      padding: 2rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      max-width: 40ch;
-      text-align: center;
-    }
+		.quote-container {
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			background: white;
+			padding: 2rem 3rem;
+			border-radius: 1rem;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+			max-width: 40ch;
+			text-align: center;
+		}
 
-  </style>
+	</style>
 </head>
 <body>
-  <div class="quote-container">
-    <h1>“Les couleurs sont comme les opinions : tout le monde pense avoir la bonne.”</h1>
-    <p>Anonyme</p>
-  </div>
+	<div class="quote-container">
+		<h1>“Les couleurs sont comme les opinions : tout le monde pense avoir la bonne.”</h1>
+		<p>Anonyme</p>
+	</div>
 
 <!-- idk chatgpt things -->
-  <script>
-    window.addEventListener('load', () => {
-      const quote = document.querySelector('.quote-container');
+	<script>
+		window.addEventListener('load', () => {
+			const quote = document.querySelector('.quote-container');
 
-      let x = 50;
-      let y = 50;
-      let vx = 2;
-      let vy = 2;
+			let x = 50;
+			let y = 50;
+			let vx = 2;
+			let vy = 2;
 
-      function changeColor() {
-        const colors = ["#ffffff", "#fef3c7", "#e0f2fe", "#e9d5ff", "#dcfce7", "#ffe4e6"];
-        const tmp = quote.style.background;
-        while (quote.style.background == tmp) {
-        quote.style.background = colors[Math.floor(Math.random() * colors.length)];
-        }
-        
-      }
+			function changeColor() {
+				const colors = ["#ffffff", "#fef3c7", "#e0f2fe", "#e9d5ff", "#dcfce7", "#ffe4e6"];
+				const tmp = quote.style.background;
+				while (quote.style.background == tmp) {
+				quote.style.background = colors[Math.floor(Math.random() * colors.length)];
+				}
+				
+			}
 
-      function animate() {
-        const maxX = window.innerWidth - quote.offsetWidth;
-        const maxY = window.innerHeight - quote.offsetHeight;
+			function animate() {
+				const maxX = window.innerWidth - quote.offsetWidth;
+				const maxY = window.innerHeight - quote.offsetHeight;
 
-        x += vx;
-        y += vy;
+				x += vx;
+				y += vy;
 
-        if (x <= 0 || x >= maxX) {
-          vx *= -1;
-          changeColor();
-        }
-        if (y <= 0 || y >= maxY) {
-          vy *= -1;
-          changeColor();
-        }
+				if (x <= 0 || x >= maxX) {
+					vx *= -1;
+					changeColor();
+				}
+				if (y <= 0 || y >= maxY) {
+					vy *= -1;
+					changeColor();
+				}
 
-        quote.style.left = x + "px";
-        quote.style.top = y + "px";
+				quote.style.left = x + "px";
+				quote.style.top = y + "px";
 
-        requestAnimationFrame(animate);
-      }
+				requestAnimationFrame(animate);
+			}
 
-      animate();
-    });
-  </script>
+			animate();
+		});
+	</script>
 
-  <nav id="projectnav"><a href="index.html">home</a></nav><link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav><link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

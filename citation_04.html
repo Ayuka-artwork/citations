@@ -1,88 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 4</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400&display=swap');
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 4</title>
+	<style>
+		body {
+			font-family: "Orbitron", sans-serif;
+			background: #111;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			text-align: center;
+		}
 
-    /*Typographie & Couleurs*/
-    body {
-      font-family: "Public Sans", sans-serif;
-      background: #f8f8fa;
-      color: #222;
-      margin: 0;
-    }
+		h1 {
+			font-size: 2rem;
+			animation: glow 2s ease-in-out infinite alternate;
+		}
 
-    h1 {
-      font-size: 1.8rem;
-      font-weight: 200;
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-      font-style: italic;
-      margin: 0 0 1rem 0;
-    }
-
-    p {
-      font-size: 0.9rem;
-      font-weight: 400;
-      color: #888;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0;
-    }
-
-    /*Mise en page*/
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    .quote-container {
-      background: white;
-      padding: 2rem 3rem;
-      border-radius: 1rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-      max-width: 40ch;
-      text-align: center;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    .divider {
-      width: 50px;
-      height: 1px;
-      background: #ddd;
-      margin: 0 auto 1rem auto;
-      border-radius: 2px;
-    }
-
-    /*Animation*/
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  </style>
-
+		@keyframes glow {
+			from { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+			to { text-shadow: 0 0 20px #0ff, 0 0 40px #00f; }
+		}
+	</style>
 </head>
-
 <body>
-  <div class="quote-container">
-    <h1>“Peux-tu juste le faire pop un peu plus ?” – Les derniers mots avant le chaos.”</h1>
-    <div class="divider"></div>
-    <p>Anonyme</p>
-</div>
+	<h1>“Brille sans éteindre les autres.”</h1>
 
-<nav id="projectnav"><a href="index.html">home</a></nav><link rel="stylesheet" href="projectnav.css">
-
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

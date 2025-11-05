@@ -1,45 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citation 15</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #fffbea;
-    }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 15</title>
 
-    span {
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-  </style>
+	<style>
+		body {
+			font-family: "Cormorant Garamond", serif;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			background: #fffbea;
+			text-align: center;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 2rem;
+			max-width: 55ch;
+			line-height: 1.4;
+		}
+
+		span {
+			opacity: 0;
+			animation: fadeIn 1s forwards;
+		}
+
+		@keyframes fadeIn {
+			to { opacity: 1; }
+		}
+	</style>
 </head>
 <body>
-  <h1 id="quote"></h1>
+	<h1 id="quote"></h1>
 
-  <script>
-    const quote = "« La patience est la clé du succès silencieux. »".split(" ");
-    const quoteBox = document.getElementById("quote");
+	<script>
+		const quote = "“La patience est la clé du succès silencieux.”".split(" ");
+		const quoteBox = document.getElementById("quote");
 
-    quote.forEach((word, i) => {
-      const span = document.createElement("span");
-      span.textContent = word + " ";
-      span.style.animationDelay = `${i * 0.3}s`;
-      quoteBox.appendChild(span);
-    });
-  </script>
+		quote.forEach((word, i) => {
+			const span = document.createElement("span");
+			span.textContent = word + " ";
+			span.style.animationDelay = `${i * 0.3}s`;
+			quoteBox.appendChild(span);
+		});
+	</script>
 
-  <nav id="projectnav"><a href="index.html">home</a></nav>
-  <link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
 </html>

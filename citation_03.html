@@ -1,63 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Citation 3</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@200;400&display=swap');
-
-		/* Typo */
-        body {
-            font-family: "Public Sans", sans-serif;
-        }
-
-		h1 {
-            font-size: 2.2rem;
-            font-weight: 200;
-            max-width: 30ch;
-            text-align: center;
-            margin: 0 0 1.5rem 0;
-            letter-spacing: -0.01em;
-            line-height: 1.2;
-        }
-
-		p {
-            font-size: 1rem;
-            font-weight: 400;
-            text-align: center;
-            margin: 0;
-            letter-spacing: 0.01em;
-		}
-
-		/* Couleur */
-		body {
-            background: #f8f8fa;
-            color: #222;
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Citation 3</title>
+	<style>
+	body {
+		font-family: "Comic Sans MS", cursive;
+		background: #e0f2fe;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
 	}
 
-	  p {
-            color: #888;
-	  }
+	h1 {
+		animation: bounce 1.5s infinite;
+	}
 
-		/* Mise en page */
-		body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-
-
-    </style>
+	@keyframes bounce {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-20px); }
+	}
+	</style>
 </head>
-
 <body>
-    <h1>“Le design, c’est l’art de rendre l’utile séduisant… et de convaincre le client que c’était son idée.”</h1>
-    <p>Anonyme</p>
+	<h1>“Le rire est une pluie qui fertilise l’âme.”</h1>
 
-    <nav id="projectnav"><a href="index.html">home</a></nav><link rel="stylesheet" href="projectnav.css">
+	<nav id="projectnav"><a href="index.html">home</a></nav>
+	<link rel="stylesheet" href="projectnav.css">
 </body>
+</html>
