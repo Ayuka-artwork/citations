@@ -1,24 +1,25 @@
 #projectnav {
-  background: rgba(34, 34, 34, 0.85); /* Noir semi-transparent élégant */
-  color: white;
-  position: fixed; /* Toujours visible, même si la page scroll */
+  position: fixed; 
   top: 20px;
   left: 20px;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px; /* Forme arrondie style "pill" */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   font-family: "Public Sans", sans-serif;
   font-size: 0.9rem;
   transition: background 0.3s ease, transform 0.2s ease;
+  background: rgba(34,34,34,0.85);
 }
 
 #projectnav:hover {
-  background: rgba(34, 34, 34, 1);
+  background: rgba(34,34,34,1);
   transform: translateY(-2px);
 }
 
 #projectnav a {
-  color: inherit;
+  display: inline-block;
+  padding: 0.6rem 1.2rem; 
+  color: white;
   text-decoration: none;
   font-weight: 500;
   letter-spacing: 0.03em;

@@ -1,70 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Citation 7</title>
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Public+Sans:wght@300&display=swap" rel="stylesheet">
-	<style>
-		body {
-			font-family: "Public Sans", sans-serif;
-			background: linear-gradient(135deg, #f8f9fb, #e9edf5);
-			height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			overflow: hidden;
-			margin: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pompe à citation centrée</title>
+  <style>
+	body {
+		font-family: "Public Sans", sans-serif;
+		background: linear-gradient(135deg, #f8f9fb, #e9edf5);
+		margin: 0;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.quote {
+		font-family: "Playfair Display", serif;
+		font-size: 32px;
+		font-style: italic;
+		text-align: center;
+		color: #222;
+		max-width: 60ch;
+		line-height: 1.6;
+		cursor: pointer;
+		transition: transform 0.2s ease, color 0.2s ease;
+		margin-bottom: 0.5rem;
+	}
+
+	.author {
+		color: #666;
+		text-transform: uppercase;
+		font-size: 0.9rem;
+		letter-spacing: 0.08em;
+		text-align: center;
+		margin-bottom: 2rem;
 		}
 
-		.quote-container {
-			text-align: center;
-			opacity: 0;
-			transform: translateY(20px);
-			animation: fadeInUp 2s ease forwards;
-			max-width: 50ch;
-			background: white;
-			padding: 2rem 3rem;
-			border-radius: 1rem;
-			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-		}
+	#pumpButton {
+		padding: 1rem 2rem;
+		font-size: 1.2rem;
+		border-radius: 999px;
+		border: none;
+		cursor: pointer;
+		box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+		background-color: #ff0040;
+		color: white;
+		transition: all 0.2s ease;
+		margin-bottom: 1.5rem;
+	}
 
-		h1 {
-			font-family: "Playfair Display", serif;
-			font-style: italic;
-			font-size: 1.8rem;
-			font-weight: 500;
-			color: #222;
-			margin: 0 0 1rem;
-		}
+	#pumpButton:hover {
+		transform: scale(1.05);
+	}
 
-		p {
-			color: #666;
-			text-transform: uppercase;
-			letter-spacing: 0.08em;
-			font-size: 0.8rem;
-			margin: 0;
-		}
+	.bar-container {
+		width: 200px;
+		height: 20px;
+		background: #eee;
+		border-radius: 10px;
+		overflow: hidden;
+		margin-top: 1rem;
+	}
 
-		@keyframes fadeInUp {
-			from {
-				opacity: 0;
-				transform: translateY(30px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-	</style>
+	.bar-fill {
+		height: 100%;
+		width: 0%;
+		border-radius: 10px;
+		transition: width 0.2s ease, background 0.2s ease;
+		background-color: #4caf50;
+	}
+
+	.bar-label {
+		text-align: center;
+		font-size: 0.8rem;
+		color: #333;
+		margin-top: 0.3rem;
+	}
+  </style>
 </head>
 <body>
-	<div class="quote-container">
-		<h1>“Chaque instant est une nouvelle chance.”</h1>
-		<p>Oprah Winfrey</p>
-	</div>
 
 	<nav id="projectnav"><a href="index.html">home</a></nav>
 	<link rel="stylesheet" href="projectnav.css">
+
+	<div class="quote" id="quote">“Pompe à fond, mots en tension !”</div>
+	<div class="author" id="author">Anonyme</div>
+
+	<button id="pumpButton">Pomper !</button>
+
+	<div class="bar-container" id="barContainer">
+	<div class="bar-fill" id="barFill"></div>
+	</div>
+	<div class="bar-label" id="barLabel">Pression : 0%</div>
+
+<script>
+const quote = document.getElementById('quote');
+const author = document.getElementById('author');
+const button = document.getElementById('pumpButton');
+const barFill = document.getElementById('barFill');
+const barLabel = document.getElementById('barLabel');
+const barContainer = document.getElementById('barContainer');
+const maxFontSize = 120;
+
+let fontSize = 32;
+let pressure = 0;
+
+function explode() {
+	const elements = [quote, author, barContainer, barLabel];
+	elements.forEach(el => {
+		el.style.transition = 'all 1s ease';
+		el.style.opacity = 0;
+		el.style.transform = `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*200}px) rotate(${(Math.random()-0.5)*60}deg) scale(0.5)`;
+  });
+	button.textContent = 'Reset';
+	button.style.backgroundColor = '#00bfff';
+}
+
+function reset() {
+	fontSize = 32;
+	pressure = 0;
+	quote.style.fontSize = fontSize + 'px';
+	quote.style.opacity = 1;
+	quote.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+	author.style.opacity = 1;
+	author.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+	barFill.style.width = '0%';
+	barFill.style.background = '#4caf50';
+	barContainer.style.opacity = 1;
+	barContainer.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+	barLabel.style.opacity = 1;
+	barLabel.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+	button.textContent = 'Pomper !';
+	button.style.backgroundColor = '#ff0040';
+}
+
+function pump() {
+	if (button.textContent === 'Reset') { reset(); return; }
+
+	if (pressure >= 100) return;
+
+	if (fontSize < maxFontSize) {
+		fontSize += 3;
+		quote.style.fontSize = fontSize + 'px';
+	}
+
+	pressure += 14;
+	if (pressure > 100) pressure = 100;
+	barFill.style.width = pressure + '%';
+
+	if (pressure < 25) barFill.style.background = '#4caf50';
+	else if (pressure < 50) barFill.style.background = '#ffeb3b';
+	else if (pressure < 75) barFill.style.background = '#ff9800';
+	else barFill.style.background = '#ff0040';
+
+	barLabel.textContent = `Pression : ${pressure}%`;
+
+	if (pressure === 100) explode();
+}
+
+quote.addEventListener('click', () => {
+	if (button.textContent === 'Reset') reset();
+});
+
+button.addEventListener('click', pump);
+
+</script>
 </body>
 </html>
