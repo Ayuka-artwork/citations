@@ -78,94 +78,96 @@
 		color: #333;
 		margin-top: 0.3rem;
 	}
-  </style>
+</style>
+
 </head>
-<body>
 
-	<nav id="projectnav"><a href="index.html">home</a></nav>
-	<link rel="stylesheet" href="projectnav.css">
+	<body>
 
-	<div class="quote" id="quote">“Pompe à fond, mots en tension !”</div>
-	<div class="author" id="author">Anonyme</div>
+		<nav id="projectnav"><a href="index.html">home</a></nav>
+		<link rel="stylesheet" href="projectnav.css">
 
-	<button id="pumpButton">Pomper !</button>
+		<div class="quote" id="quote">“Pompe à fond, mots en tension !”</div>
+		<div class="author" id="author">Anonyme</div>
 
-	<div class="bar-container" id="barContainer">
-	<div class="bar-fill" id="barFill"></div>
-	</div>
-	<div class="bar-label" id="barLabel">Pression : 0%</div>
+		<button id="pumpButton">Pomper !</button>
 
-<script>
-const quote = document.getElementById('quote');
-const author = document.getElementById('author');
-const button = document.getElementById('pumpButton');
-const barFill = document.getElementById('barFill');
-const barLabel = document.getElementById('barLabel');
-const barContainer = document.getElementById('barContainer');
-const maxFontSize = 120;
+		<div class="bar-container" id="barContainer">
+		<div class="bar-fill" id="barFill"></div>
+		</div>
+		<div class="bar-label" id="barLabel">Pression : 0%</div>
 
-let fontSize = 32;
-let pressure = 0;
+		<script>
+			const quote = document.getElementById('quote');
+			const author = document.getElementById('author');
+			const button = document.getElementById('pumpButton');
+			const barFill = document.getElementById('barFill');
+			const barLabel = document.getElementById('barLabel');
+			const barContainer = document.getElementById('barContainer');
+			const maxFontSize = 120;
 
-function explode() {
-	const elements = [quote, author, barContainer, barLabel];
-	elements.forEach(el => {
-		el.style.transition = 'all 1s ease';
-		el.style.opacity = 0;
-		el.style.transform = `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*200}px) rotate(${(Math.random()-0.5)*60}deg) scale(0.5)`;
-  });
-	button.textContent = 'Reset';
-	button.style.backgroundColor = '#00bfff';
-}
+			let fontSize = 32;
+			let pressure = 0;
 
-function reset() {
-	fontSize = 32;
-	pressure = 0;
-	quote.style.fontSize = fontSize + 'px';
-	quote.style.opacity = 1;
-	quote.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
-	author.style.opacity = 1;
-	author.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
-	barFill.style.width = '0%';
-	barFill.style.background = '#4caf50';
-	barContainer.style.opacity = 1;
-	barContainer.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
-	barLabel.style.opacity = 1;
-	barLabel.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
-	button.textContent = 'Pomper !';
-	button.style.backgroundColor = '#ff0040';
-}
+			function explode() {
+				const elements = [quote, author, barContainer, barLabel];
+				elements.forEach(el => {
+					el.style.transition = 'all 1s ease';
+					el.style.opacity = 0;
+					el.style.transform = `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*200}px) rotate(${(Math.random()-0.5)*60}deg) scale(0.5)`;
+			});
+				button.textContent = 'Reset';
+				button.style.backgroundColor = '#00bfff';
+			}
 
-function pump() {
-	if (button.textContent === 'Reset') { reset(); return; }
+			function reset() {
+				fontSize = 32;
+				pressure = 0;
+				quote.style.fontSize = fontSize + 'px';
+				quote.style.opacity = 1;
+				quote.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+				author.style.opacity = 1;
+				author.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+				barFill.style.width = '0%';
+				barFill.style.background = '#4caf50';
+				barContainer.style.opacity = 1;
+				barContainer.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+				barLabel.style.opacity = 1;
+				barLabel.style.transform = 'translate(0,0) rotate(0deg) scale(1)';
+				button.textContent = 'Pomper !';
+				button.style.backgroundColor = '#ff0040';
+			}
 
-	if (pressure >= 100) return;
+			function pump() {
+				if (button.textContent === 'Reset') { reset(); return; }
 
-	if (fontSize < maxFontSize) {
-		fontSize += 3;
-		quote.style.fontSize = fontSize + 'px';
-	}
+				if (pressure >= 100) return;
 
-	pressure += 14;
-	if (pressure > 100) pressure = 100;
-	barFill.style.width = pressure + '%';
+				if (fontSize < maxFontSize) {
+					fontSize += 3;
+					quote.style.fontSize = fontSize + 'px';
+				}
 
-	if (pressure < 25) barFill.style.background = '#4caf50';
-	else if (pressure < 50) barFill.style.background = '#ffeb3b';
-	else if (pressure < 75) barFill.style.background = '#ff9800';
-	else barFill.style.background = '#ff0040';
+				pressure += 14;
+				if (pressure > 100) pressure = 100;
+				barFill.style.width = pressure + '%';
 
-	barLabel.textContent = `Pression : ${pressure}%`;
+				if (pressure < 25) barFill.style.background = '#4caf50';
+				else if (pressure < 50) barFill.style.background = '#ffeb3b';
+				else if (pressure < 75) barFill.style.background = '#ff9800';
+				else barFill.style.background = '#ff0040';
 
-	if (pressure === 100) explode();
-}
+				barLabel.textContent = `Pression : ${pressure}%`;
 
-quote.addEventListener('click', () => {
-	if (button.textContent === 'Reset') reset();
-});
+				if (pressure === 100) explode();
+			}
 
-button.addEventListener('click', pump);
+			quote.addEventListener('click', () => {
+				if (button.textContent === 'Reset') reset();
+			});
 
-</script>
+			button.addEventListener('click', pump);
+
+		</script>
 </body>
 </html>
