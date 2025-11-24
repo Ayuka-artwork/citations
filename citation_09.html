@@ -7,77 +7,77 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&family=Montserrat:wght@500&display=swap" rel="stylesheet">
 <style>
 
-body {
-	font-family: "EB Garamond", serif;
-	margin: 0;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-	background-size: 300% 300%;
-	animation: gradientShift 15s ease infinite;
-	color: #fff;
-	text-align: center;
-	overflow: hidden;
-}
+	body {
+		font-family: "EB Garamond", serif;
+		margin: 0;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+		background-size: 300% 300%;
+		animation: gradientShift 15s ease infinite;
+		color: #fff;
+		text-align: center;
+		overflow: hidden;
+	}
 
-@keyframes gradientShift {
-	0% { background-position: 0% 50%; }
-	50% { background-position: 100% 50%; }
-	100% { background-position: 0% 50%; }
-}
+	@keyframes gradientShift {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
 
-h1 {
-	font-size: 2rem;
-	max-width: 43ch;
-	margin: 0;
-	cursor: pointer;
-	transition: transform 0.6s ease;
-}
+	h1 {
+		font-size: 2rem;
+		max-width: 43ch;
+		margin: 0;
+		cursor: pointer;
+		transition: transform 0.6s ease;
+	}
 
-p {
-	margin-top: 1rem;
-	font-size: 1rem;
-	font-style: italic;
-	opacity: 0.9;
-}
+	p {
+		margin-top: 1rem;
+		font-size: 1rem;
+		font-style: italic;
+		opacity: 0.9;
+	}
 
-button {
-	font-family: "Montserrat", sans-serif;
-	margin-top: 2rem;
-	padding: 0.8rem 1.8rem;
-	border-radius: 999px;
-	border: 2px solid #fff;
-	background: rgba(255,255,255,0.1);
-	color: #fff;
-	font-weight: 500;
-	cursor: pointer;
-	transition: all 0.3s ease;
-}
+	button {
+		font-family: "Montserrat", sans-serif;
+		margin-top: 2rem;
+		padding: 0.8rem 1.8rem;
+		border-radius: 999px;
+		border: 2px solid #fff;
+		background: rgba(255,255,255,0.1);
+		color: #fff;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
 
-button:hover {
-	background: rgba(255,255,255,0.25);
-	transform: scale(1.05);
-}
+	button:hover {
+		background: rgba(255,255,255,0.25);
+		transform: scale(1.05);
+	}
 
-.shooting-star {
-	position: absolute;
-	top: 0;
-	left: -50px;
-	width: 5px;
-	height: 5px;
-	background: white;
-	border-radius: 50%;
-	box-shadow: 0 0 10px white;
-	animation: shoot 1s linear forwards;
-}
+	.shooting-star {
+		position: absolute;
+		top: 0;
+		left: -50px;
+		width: 5px;
+		height: 5px;
+		background: white;
+		border-radius: 50%;
+		box-shadow: 0 0 10px white;
+		animation: shoot 1s linear forwards;
+	}
 
-@keyframes shoot {
-	0% { transform: translate(0, 0) rotate(45deg); opacity: 1; }
-	100% { transform: translate(120vw, 80vh) rotate(45deg); opacity: 0; }
-}
+	@keyframes shoot {
+		0% { transform: translate(0, 0) rotate(45deg); opacity: 1; }
+		100% { transform: translate(120vw, 80vh) rotate(45deg); opacity: 0; }
+	}
 
 </style>
 </head>

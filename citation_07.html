@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pompe à citation centrée</title>
-  <style>
-	body {
-		font-family: "Public Sans", sans-serif;
-		background: linear-gradient(135deg, #f8f9fb, #e9edf5);
-		margin: 0;
-		height: 100vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-	}
-
-	.quote {
-		font-family: "Playfair Display", serif;
-		font-size: 32px;
-		font-style: italic;
-		text-align: center;
-		color: #222;
-		max-width: 60ch;
-		line-height: 1.6;
-		cursor: pointer;
-		transition: transform 0.2s ease, color 0.2s ease;
-		margin-bottom: 0.5rem;
-	}
-
-	.author {
-		color: #666;
-		text-transform: uppercase;
-		font-size: 0.9rem;
-		letter-spacing: 0.08em;
-		text-align: center;
-		margin-bottom: 2rem;
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pompe à citation centrée</title>
+	<style>
+		body {
+			font-family: "Public Sans", sans-serif;
+			background: linear-gradient(135deg, #f8f9fb, #e9edf5);
+			margin: 0;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
 		}
 
-	#pumpButton {
-		padding: 1rem 2rem;
-		font-size: 1.2rem;
-		border-radius: 999px;
-		border: none;
-		cursor: pointer;
-		box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-		background-color: #ff0040;
-		color: white;
-		transition: all 0.2s ease;
-		margin-bottom: 1.5rem;
-	}
+		.quote {
+			font-family: "Playfair Display", serif;
+			font-size: 32px;
+			font-style: italic;
+			text-align: center;
+			color: #222;
+			max-width: 60ch;
+			line-height: 1.6;
+			cursor: pointer;
+			transition: transform 0.2s ease, color 0.2s ease;
+			margin-bottom: 0.5rem;
+		}
 
-	#pumpButton:hover {
-		transform: scale(1.05);
-	}
+		.author {
+			color: #666;
+			text-transform: uppercase;
+			font-size: 0.9rem;
+			letter-spacing: 0.08em;
+			text-align: center;
+			margin-bottom: 2rem;
+			}
 
-	.bar-container {
-		width: 200px;
-		height: 20px;
-		background: #eee;
-		border-radius: 10px;
-		overflow: hidden;
-		margin-top: 1rem;
-	}
+		#pumpButton {
+			padding: 1rem 2rem;
+			font-size: 1.2rem;
+			border-radius: 999px;
+			border: none;
+			cursor: pointer;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+			background-color: #ff0040;
+			color: white;
+			transition: all 0.2s ease;
+			margin-bottom: 1.5rem;
+		}
 
-	.bar-fill {
-		height: 100%;
-		width: 0%;
-		border-radius: 10px;
-		transition: width 0.2s ease, background 0.2s ease;
-		background-color: #4caf50;
-	}
+		#pumpButton:hover {
+			transform: scale(1.05);
+		}
 
-	.bar-label {
-		text-align: center;
-		font-size: 0.8rem;
-		color: #333;
-		margin-top: 0.3rem;
-	}
-</style>
+		.bar-container {
+			width: 200px;
+			height: 20px;
+			background: #eee;
+			border-radius: 10px;
+			overflow: hidden;
+			margin-top: 1rem;
+		}
+
+		.bar-fill {
+			height: 100%;
+			width: 0%;
+			border-radius: 10px;
+			transition: width 0.2s ease, background 0.2s ease;
+			background-color: #4caf50;
+		}
+
+		.bar-label {
+			text-align: center;
+			font-size: 0.8rem;
+			color: #333;
+			margin-top: 0.3rem;
+		}
+	</style>
 
 </head>
 
