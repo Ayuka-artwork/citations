@@ -8,251 +8,252 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        margin: 0;
-        font-family: "Nunito", sans-serif;
-        background: #f6ccf6;
-        color: #ffffff;
-        text-align: center;
-    }
+	body {
+		margin: 0;
+		font-family: "Nunito", sans-serif;
+		background: #f6ccf6;
+		color: #ffffff;
+		text-align: center;
+	}
 
-    /* Bulle du haut */
-    .header-box {
-        background: white;
-        color: #d88add;
-        width: fit-content;
-        max-width: 85%;
-        margin: 40px auto 10px;
-        padding: 25px 40px;
-        border-radius: 35px;
-        box-shadow: 0px 6px 20px rgba(179,143,178,0.50);
-        display: inline-block;
-    }
+	/* Bulle du haut */
+	.header-box {
+		background: white;
+		color: #d88add;
+		width: fit-content;
+		max-width: 85%;
+		margin: 40px auto 10px;
+		padding: 25px 40px;
+		border-radius: 35px;
+		box-shadow: 0px 6px 20px rgba(179,143,178,0.20);
+		display: inline-block;
+	}
 
-    .header-box h1 {
-        margin: 0;
-        font-size: 2rem;
-        font-weight: 900;
-        white-space: nowrap;
-    }
+	.header-box h1 {
+		margin: 0;
+		font-size: 2rem;
+		font-weight: 900;
+		white-space: nowrap;
+	}
 
-    .header-box p {
-        margin-top: 8px;
-        font-size: 0.95rem;
-        color: #c47ac5;
-        line-height: 1.35;
-        max-width: 50ch;
-    }
+	.header-box p {
+		margin-top: 8px;
+		font-size: 0.95rem;
+		color: #c47ac5;
+		line-height: 1.35;
+		max-width: 50ch;
+	}
 
-    h2 {
-        margin-top: 25px;
-        font-size: 2rem;
-        font-weight: 900;
-        text-shadow: 0 3px 8px rgba(179,143,178,0.50);
-    }
+	h2 {
+		margin-top: 25px;
+		font-size: 2rem;
+		font-weight: 900;
+		text-shadow: 0 3px 8px rgba(179,143,178,0.50);
+	}
 
-    .sub {
-        margin-top: -25px;
-        font-size: 1rem;
-        text-shadow: 0 3px 8px rgba(179,143,178,0.50);
-    }
+	.sub {
+		margin-top: -25px;
+		font-size: 1rem;
+		text-shadow: 0 3px 8px rgba(179, 143, 178, 0.766);
+	}
 
-    .display {
-        background: white;
-        width: 220px;
-        margin: 22px auto;
-        padding: 20px 10px;
-        border-radius: 20px;
-        color: #c47ac5;
-        font-size: 1.6rem;
-        font-weight: 700;
-        box-shadow: 0 6px 20px rgba(179,143,178,0.50);
-    }
+	.display {
+		background: white;
+		width: 220px;
+		margin: 22px auto;
+		padding: 20px 10px;
+		border-radius: 20px;
+		color: #c47ac5;
+		font-size: 1.6rem;
+		font-weight: 700;
+		box-shadow: 0 6px 20px rgba(179,143,178,0.20);
+	}
 
-    .pad {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 14px;
-        margin-top: 10px;
-    }
+	.pad {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 14px;
+		margin-top: 10px;
+	}
 
-    .pad-row {
-        display: flex;
-        gap: 14px;
-    }
+	.pad-row {
+		display: flex;
+		gap: 14px;
+	}
 
-    .key, .zero {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #d67cd5;
-        cursor: pointer;
-        box-shadow: 0 5px 18px rgba(179,143,178,0.50);
-        transition: transform 0.15s;
-    }
+	.key, .zero {
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		background: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: #d67cd5;
+		cursor: pointer;
+		box-shadow: 0 5px 18px rgba(179,143,178,0.20);
+		transition: transform 0.15s;
+	}
 
-    .key:active, .zero:active {
-        transform: scale(0.92);
-    }
+	.key:active, .zero:active {
+		transform: scale(0.92);
+	}
 
-    /* Bloc zéro + étoile + X */
-    .bottom-buttons {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 18px;
-        margin-top: 14px;
-        position: relative;
-    }
+	/* Bloc zéro + étoile + X */
+	.bottom-buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 18px;
+		margin-top: 14px;
+		position: relative;
+	}
 
-    .del {
-        position: absolute;
-        bottom: 20px;
-        right: calc(50% - 125px);
-    }
+	.del {
+		position: absolute;
+		bottom: 20px;
+		right: calc(50% - 125px);
+	}
 
-    .call {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 3rem;
-        font-weight: 900;
-        color: #d67cd5;
-        cursor: pointer;
-        box-shadow: 0 6px 20px rgba(179,143,178,0.50);
-        transition: transform 0.15s;
-    }
+	.call {
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		background: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 3rem;
+		font-weight: 900;
+		color: #d67cd5;
+		cursor: pointer;
+		box-shadow: 0 6px 20px rgba(179,143,178,0.20);
+		transition: transform 0.15s;
+	}
 
-    .call:active {
-        transform: scale(0.9);
-    }
+	.call:active {
+		transform: scale(0.9);
+	}
 
-    .del {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.6rem;
-        font-weight: 900;
-        color: #d67cd5;
-        cursor: pointer;
-        box-shadow: 0 6px 20px rgba(179,143,178,0.50);
-        transition: transform 0.15s;
-    }
+	.del {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.6rem;
+		font-weight: 900;
+		color: #d67cd5;
+		cursor: pointer;
+		box-shadow: 0 6px 20px rgba(179,143,178,0.20);
+		transition: transform 0.15s;
+	}
 
-    .del:active {
-        transform: scale(0.9);
-    }
+	.del:active {
+		transform: scale(0.9);
+	}
 
-    footer {
-        margin-top: 60px;
-        font-size: 1rem;
-        opacity: 0.7;
-        margin-bottom: 40px;
-    }
+	footer {
+		margin-top: 60px;
+		font-size: 1rem;
+		opacity: 0.7;
+		margin-bottom: 40px;
+	}
 </style>
 </head>
 
 <body>
 
-    <div class="header-box">
-        <h1>Combiné à citation</h1>
-        <p>
-            Parfois, une citation arrive comme un appel inattendu.<br>
-            Ici, tu composes un numéro comme on compose une pensée,<br>
-            et derrière chaque touche se cache une petite histoire.
-        </p>
-    </div>
+	<div class="header-box">
+		<h1>Combiné à citation</h1>
+		<p>
+			Parfois, une citation arrive comme un appel inattendu.<br>
+			Ici, tu composes un numéro comme on compose une pensée,<br>
+			et derrière chaque touche se cache une petite histoire.
+		</p>
+	</div>
 
-    <h2>Compose ton numéro</h2>
-    <div class="sub">Compose un numéro entre 1 et 16 • Appeler = ✦ • Effacer = X</div>
+	<h2>Compose ton numéro</h2>
+	<div class="sub">Compose un numéro entre 1 et 16 • Appeler = ✦ • Effacer = X</div>
 
-    <div class="display" id="display">❝…❞</div>
+	<div class="display" id="display">❝…❞</div>
 
-    <div class="pad">
-        <div class="pad-row">
-            <div class="key">1</div>
-            <div class="key">2</div>
-            <div class="key">3</div>
-        </div>
-        <div class="pad-row">
-            <div class="key">4</div>
-            <div class="key">5</div>
-            <div class="key">6</div>
-        </div>
-        <div class="pad-row">
-            <div class="key">7</div>
-            <div class="key">8</div>
-            <div class="key">9</div>
-        </div>
-    </div>
+	<!-- idk chatgpt things -->
+	<div class="pad">
+		<div class="pad-row">
+			<div class="key">1</div>
+			<div class="key">2</div>
+			<div class="key">3</div>
+		</div>
+		<div class="pad-row">
+			<div class="key">4</div>
+			<div class="key">5</div>
+			<div class="key">6</div>
+		</div>
+		<div class="pad-row">
+			<div class="key">7</div>
+			<div class="key">8</div>
+			<div class="key">9</div>
+		</div>
+	</div>
 
-    <div class="bottom-buttons">
-        <div class="zero" id="zero">0</div>
-        <div class="call" id="call">✦</div>
-        <div class="del" id="del">×</div>
-    </div>
+	<div class="bottom-buttons">
+		<div class="zero" id="zero">0</div>
+		<div class="call" id="call">✦</div>
+		<div class="del" id="del">×</div>
+	</div>
 
-    <footer>Projet web – 16 citations</footer>
+	<footer>Projet web – 16 citations</footer>
 
-<script>
-    const display = document.getElementById("display");
-    let current = "";
+	<script>
+		const display = document.getElementById("display");
+		let current = "";
 
-    // Touches 1-9
-    document.querySelectorAll(".key").forEach(k => {
-        k.addEventListener("click", () => {
-            if (current.length < 2) {
-                current += k.textContent;
-                display.textContent = "❝" + current + "❞";
-            }
-        });
-    });
+		// Touches 1-9
+		document.querySelectorAll(".key").forEach(k => {
+			k.addEventListener("click", () => {
+				if (current.length < 2) {
+					current += k.textContent;
+					display.textContent = "❝" + current + "❞";
+				}
+			});
+		});
 
-    // Touche 0
-    document.getElementById("zero").addEventListener("click", () => {
-        if (current.length < 2) {
-            current += "0";
-            display.textContent = "❝" + current + "❞";
-        }
-    });
+		// Touche 0
+		document.getElementById("zero").addEventListener("click", () => {
+			if (current.length < 2) {
+				current += "0";
+				display.textContent = "❝" + current + "❞";
+			}
+		});
 
-    // Bouton effacer (X)
-    document.getElementById("del").addEventListener("click", () => {
-        current = current.slice(0, -1);
-        display.textContent = current ? "❝" + current + "❞" : "❝…❞";
-    });
+		// Bouton effacer (X)
+		document.getElementById("del").addEventListener("click", () => {
+			current = current.slice(0, -1);
+			display.textContent = current ? "❝" + current + "❞" : "❝…❞";
+		});
 
-    // Bouton appeler (étoile)
-    document.getElementById("call").addEventListener("click", () => {
-        if (current === "") return;
+		// Bouton appeler (étoile)
+		document.getElementById("call").addEventListener("click", () => {
+			if (current === "") return;
 
-        let n = parseInt(current);
+			let n = parseInt(current);
 
-        if (n >= 1 && n <= 16) {
-            const file = n < 10 ? "citation_0" + n + ".html" 
-                               : "citation_" + n + ".html";
-            window.location.href = file;
-        }
+			if (n >= 1 && n <= 16) {
+				const file = n < 10 ? "citation_0" + n + ".html" 
+				:	"citation_" + n + ".html";
+				window.location.href = file;
+			}
 
-        current = "";
-        display.textContent = "❝…❞";
-    });
-</script>
+			current = "";
+			display.textContent = "❝…❞";
+		});
+	</script>
 
 </body>
 </html>
