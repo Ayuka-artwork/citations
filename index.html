@@ -1,298 +1,258 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-	<title>Téléphone à citations</title>
-	<style>
-		:root {
-			--bg1: #111;
-			--bg2: #000;
-			--glass: rgba(255,255,255,0.06);
-			--accent: #1ed760;
-			--danger: #ff4d4d;
-		}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Combiné à citation</title>
 
-		html, body {
-			margin: 0;
-			min-height: 100%;
-			background: radial-gradient(circle at top, var(--bg1) 0%, var(--bg2) 100%) fixed;
-			background-repeat: no-repeat;
-			background-attachment: fixed;
-			color: #f2f2f2;
-			font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-			display: flex;
-			flex-direction: column;
-		}
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;900&display=swap" rel="stylesheet">
 
-		main {
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			padding: 1rem;
-			box-sizing: border-box;
-		}
+<style>
+    body {
+        margin: 0;
+        font-family: "Nunito", sans-serif;
+        background: #f6ccf6;
+        color: #ffffff;
+        text-align: center;
+    }
 
-		.intro {
-			max-width: 420px;
-			text-align: center;
-			margin-bottom: 2.2rem;
-			opacity: 0;
-			line-height: 1.5;
-			animation: fadeIn 1.5s ease forwards;
-		}
+    /* Bulle du haut */
+    .header-box {
+        background: white;
+        color: #d88add;
+        width: fit-content;
+        max-width: 85%;
+        margin: 40px auto 10px;
+        padding: 25px 40px;
+        border-radius: 35px;
+        box-shadow: 0px 6px 20px rgba(179,143,178,0.50);
+        display: inline-block;
+    }
 
-		.intro h2 {
-			font-size: 1.1rem;
-			font-weight: 600;
-			margin-bottom: 0.4rem;
-			color: #fafafa;
-			text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-		}
+    .header-box h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 900;
+        white-space: nowrap;
+    }
 
-		.intro p {
-			font-size: 0.9rem;
-			color: #ccc;
-		}
+    .header-box p {
+        margin-top: 8px;
+        font-size: 0.95rem;
+        color: #c47ac5;
+        line-height: 1.35;
+        max-width: 50ch;
+    }
 
-		@keyframes fadeIn {
-			from { opacity: 0; transform: translateY(10px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
+    h2 {
+        margin-top: 25px;
+        font-size: 2rem;
+        font-weight: 900;
+        text-shadow: 0 3px 8px rgba(179,143,178,0.50);
+    }
 
-		h1 {
-			font-size: 1.3rem;
-			margin: 0 0 14px 0;
-			font-weight: 500;
-			opacity: 0.95;
-			letter-spacing: 0.6px;
-			text-align: center;
-		}
+    .sub {
+        margin-top: -25px;
+        font-size: 1rem;
+        text-shadow: 0 3px 8px rgba(179,143,178,0.50);
+    }
 
-		.screen {
-			width: 220px;
-			height: 54px;
-			border-radius: 12px;
-			background: var(--glass);
-			border: 1px solid rgba(255,255,255,0.12);
-			backdrop-filter: blur(8px);
-			text-align: center;
-			line-height: 54px;
-			font-size: 1.5rem;
-			letter-spacing: 2px;
-			margin-bottom: 18px;
-			box-shadow: 0 6px 18px rgba(0,0,0,0.6), inset 0 1px 6px rgba(255,255,255,0.02);
-		}
+    .display {
+        background: white;
+        width: 220px;
+        margin: 22px auto;
+        padding: 20px 10px;
+        border-radius: 20px;
+        color: #c47ac5;
+        font-size: 1.6rem;
+        font-weight: 700;
+        box-shadow: 0 6px 20px rgba(179,143,178,0.50);
+    }
 
-		.keypad {
-			display: grid;
-			grid-template-columns: repeat(3, 80px);
-			gap: 15px;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 12px;
-		}
+    .pad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        margin-top: 10px;
+    }
 
-		.digit {
-			width: 80px;
-			height: 80px;
-			border-radius: 50%;
-			border: none;
-			background: rgba(255,255,255,0.05);
-			color: #fff;
-			font-size: 1.5rem;
-			cursor: pointer;
-			display:flex;
-			align-items:center;
-			justify-content:center;
-			transition: all 0.15s ease;
-			box-shadow: 0 6px 12px rgba(0,0,0,0.45);
-			backdrop-filter: blur(4px);
-		}
+    .pad-row {
+        display: flex;
+        gap: 18px;
+    }
 
-		.digit:hover { background: rgba(255,255,255,0.13); transform: scale(1.05); }
+    .key, .zero {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #d67cd5;
+        cursor: pointer;
+        box-shadow: 0 5px 18px rgba(179,143,178,0.50);
+        transition: transform 0.15s;
+    }
 
-		.actions {
-			position: relative;
-			width: 270px;
-			height: 85px;
-			display: block;
-			margin-bottom: 8px;
-		}
+    .key:active, .zero:active {
+        transform: scale(0.92);
+    }
 
-		.call {
-			position: absolute;
-			left: 50%;
-			top: 0;
-			transform: translateX(-50%);
-			width: 92px;
-			height: 92px;
-			border-radius: 50%;
-			background: linear-gradient(145deg, #28c76f, #1aa34f);
-			border: none;
-			display:flex;
-			align-items:center;
-			justify-content:center;
-			box-shadow: 0 10px 30px rgba(40,199,111,0.18), 0 4px 10px rgba(0,0,0,0.5);
-			cursor:pointer;
-			transition: transform .18s ease, box-shadow .18s ease;
-		}
+    /* Bloc zéro + étoile + X */
+    .bottom-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        margin-top: 18px;
+        position: relative;
+    }
 
-		.call:hover {
-			transform: translateX(-50%) scale(1.06);
-			box-shadow: 0 14px 36px rgba(40,199,111,0.26);
-		}
+    .del {
+        position: absolute;
+        bottom: 20px;
+        right: calc(50% - 140px);
+    }
 
-		.call svg { width: 34px; height: 34px; fill: white; }
+    .call {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-weight: 900;
+        color: #d67cd5;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(179,143,178,0.50);
+        transition: transform 0.15s;
+    }
 
-		.delete {
-			position: absolute;
-			right: 0;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 56px;
-			height: 56px;
-			border-radius: 50%;
-			border: none;
-			background: rgba(255,255,255,0.08);
-			display:flex;
-			align-items:center;
-			justify-content:center;
-			cursor:pointer;
-			transition: background-color .25s ease, transform .15s ease;
-			box-shadow: 0 6px 14px rgba(0,0,0,0.45);
-		}
+    .call:active {
+        transform: scale(0.9);
+    }
 
-		.delete:hover {
-			background-color: rgba(255,77,77,0.3);
-			transform: translateY(-50%) scale(1.06);
-		}
+    .del {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: #d67cd5;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(179,143,178,0.50);
+        transition: transform 0.15s;
+    }
 
-		.delete svg {
-			width: 20px;
-			height: 20px;
-			fill: white;
-			opacity: 0.9;
-			transition: opacity .2s ease;
-		}
+    .del:active {
+        transform: scale(0.9);
+    }
 
-		.delete:hover svg {
-			opacity: 1;
-			fill: var(--danger);
-		}
-
-		footer {
-			text-align: center;
-			padding: 0.8rem 0;
-			font-size: 0.82rem;
-			color: #8b8b8b;
-			flex-shrink: 0;
-			background: rgba(0, 0, 0, 0.2);
-			backdrop-filter: blur(4px);
-		}
-
-		@media (max-width:420px){
-			.keypad { grid-template-columns: repeat(3, 64px); gap:10px; }
-			.digit { width:64px; height:64px; font-size:1.25rem; }
-			.screen { width: 180px; height:48px; line-height:48px; font-size:1.25rem; }
-			.actions { width: 208px; height:72px; }
-			.call { width:80px; height:80px; }
-			.delete { width:48px; height:48px; }
-		}
-	</style>
+    footer {
+        margin-top: 60px;
+        font-size: 1rem;
+        opacity: 0.7;
+        margin-bottom: 40px;
+    }
+</style>
 </head>
+
 <body>
-	<main>
-		<section class="intro">
-			<h2>Projet Web – 16 Citations</h2>
-			<p>
-				Ce projet, réalisé entre le 28 août et le 18 décembre, explore la typographie,
-				la couleur et l’animation à travers <strong>16 pages de citations</strong>.  
-				Chaque citation a été mise en scène selon une esthétique propre,
-				reflétant une émotion ou un style graphique particulier.
-			</p>
-		</section>
 
-		<h1>Compose ton numéro de citation</h1>
-		<div class="screen" id="screen">_</div>
+    <div class="header-box">
+        <h1>Combiné à citation</h1>
+        <p>
+            Parfois, une citation arrive comme un appel inattendu.<br>
+            Ici, tu composes un numéro comme on compose une pensée,<br>
+            et derrière chaque touche se cache une petite histoire.
+        </p>
+    </div>
 
-		<div class="keypad">
-			<button class="digit" onclick="press('1')">1</button>
-			<button class="digit" onclick="press('2')">2</button>
-			<button class="digit" onclick="press('3')">3</button>
-			<button class="digit" onclick="press('4')">4</button>
-			<button class="digit" onclick="press('5')">5</button>
-			<button class="digit" onclick="press('6')">6</button>
-			<button class="digit" onclick="press('7')">7</button>
-			<button class="digit" onclick="press('8')">8</button>
-			<button class="digit" onclick="press('9')">9</button>
-			<div></div>
-			<button class="digit" onclick="press('0')">0</button>
-			<div></div>
-		</div>
+    <h2>Compose ton numéro</h2>
+    <div class="sub">Compose un numéro entre 1 et 16 • Appeler = ✦ • Effacer = X</div>
 
-		<div class="actions">
-			<button class="call" onclick="call()" title="Appeler">
-				<svg viewBox="0 0 24 24">
-					<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12.98.38 1.95.78 2.86a2 2 0 0 1-.45 2.11L8.91 9.91a16 16 0 0 0 6 6l1.22-1.21a2 2 0 0 1 2.11-.45c.91.4 1.88.66 2.86.78A2 2 0 0 1 22 16.92z"/>
-				</svg>
-			</button>
+    <div class="display" id="display">❝…❞</div>
 
-			<button class="delete" onclick="clearScreen()" title="Effacer">
-				<svg viewBox="0 0 24 24">
-					<path d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.9 4.89a1 1 0 1 0 1.41 1.41L12 13.41l4.89 4.9a1 1 0 0 0 1.41-1.41L13.41 12l4.9-4.89a1 1 0 0 0 0-1.4z"/>
-				</svg>
-			</button>
-		</div>
-	</main>
+    <div class="pad">
+        <div class="pad-row">
+            <div class="key">1</div>
+            <div class="key">2</div>
+            <div class="key">3</div>
+        </div>
+        <div class="pad-row">
+            <div class="key">4</div>
+            <div class="key">5</div>
+            <div class="key">6</div>
+        </div>
+        <div class="pad-row">
+            <div class="key">7</div>
+            <div class="key">8</div>
+            <div class="key">9</div>
+        </div>
+    </div>
 
-	<footer>
-		Compose un numéro entre 1 et 16 • Entrée = Appeler, ← = Effacer
-	</footer>
+    <div class="bottom-buttons">
+        <div class="zero" id="zero">0</div>
+        <div class="call" id="call">✦</div>
+        <div class="del" id="del">×</div>
+    </div>
 
-	<script>
-		let input = "";
+    <footer>Projet web – 16 citations</footer>
 
-		function updateScreen() {
-			document.getElementById('screen').textContent = input === "" ? "_" : input;
-		}
+<script>
+    const display = document.getElementById("display");
+    let current = "";
 
-		function press(num) {
-			if (input.length < 2) {
-				input += num;
-				updateScreen();
-			}
-		}
+    // Touches 1-9
+    document.querySelectorAll(".key").forEach(k => {
+        k.addEventListener("click", () => {
+            if (current.length < 2) {
+                current += k.textContent;
+                display.textContent = "❝" + current + "❞";
+            }
+        });
+    });
 
-		function clearScreen() {
-			input = "";
-			updateScreen();
-		}
+    // Touche 0
+    document.getElementById("zero").addEventListener("click", () => {
+        if (current.length < 2) {
+            current += "0";
+            display.textContent = "❝" + current + "❞";
+        }
+    });
 
-		function call() {
-			const num = parseInt(input, 10);
-			if (!isNaN(num) && num >= 1 && num <= 16) {
-				const page = `citation_${String(num).padStart(2, '0')}.html`;
-				window.location.href = page;
-			} else {
-				const s = document.getElementById('screen');
-				s.textContent = 'Erreur';
-				setTimeout(() => updateScreen(), 1000);
-			}
-		}
+    // Bouton effacer (X)
+    document.getElementById("del").addEventListener("click", () => {
+        current = current.slice(0, -1);
+        display.textContent = current ? "❝" + current + "❞" : "❝…❞";
+    });
 
-		document.addEventListener('keydown', (e) => {
-			if (/^[0-9]$/.test(e.key)) press(e.key);
-			else if (e.key === 'Enter') call();
-			else if (e.key === 'Backspace') {
-				input = input.slice(0, -1);
-				updateScreen();
-			}
-		});
+    // Bouton appeler (étoile)
+    document.getElementById("call").addEventListener("click", () => {
+        if (current === "") return;
 
-		updateScreen();
-	</script>
+        let n = parseInt(current);
+
+        if (n >= 1 && n <= 16) {
+            const file = n < 10 ? "citation_0" + n + ".html" 
+                               : "citation_" + n + ".html";
+            window.location.href = file;
+        }
+
+        current = "";
+        display.textContent = "❝…❞";
+    });
+</script>
+
 </body>
 </html>
