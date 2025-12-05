@@ -44,7 +44,6 @@
 			border-radius: 999px;
 			border: none;
 			cursor: pointer;
-			box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 			background-color: #ff0040;
 			color: white;
 			transition: all 0.2s ease;
@@ -58,10 +57,10 @@
 		.bar-container {
 			width: 200px;
 			height: 20px;
-			background: #eee;
+			background: rgba(0, 0, 0, 0.05);
 			border-radius: 10px;
 			overflow: hidden;
-			margin-top: 1rem;
+			margin-top: 0.1rem;
 		}
 
 		.bar-fill {
@@ -76,17 +75,19 @@
 			text-align: center;
 			font-size: 0.8rem;
 			color: #333;
-			margin-top: 0.3rem;
+			margin-top: 0.5rem;
 		}
 	</style>
 
 </head>
 
-	<!-- idk chatgpt things -->
 	<body>
 
 		<nav id="projectnav"><a href="index.html">home</a></nav>
 		<link rel="stylesheet" href="projectnav.css">
+
+	<!-- //////////////////////////////////////////////// -->
+    <!-- everything below this is done with Chatgpt, don't look at it, it might hurt your eyes idk haha-->
 
 		<div class="quote" id="quote">“Pompe à fond, mots en tension !”</div>
 		<div class="author" id="author">Anonyme</div>
@@ -98,8 +99,6 @@
 		</div>
 		<div class="bar-label" id="barLabel">Pression : 0%</div>
 
-		<!-- //////////////////////////////////////////////// -->
-		<!-- all this made by Chat gPT  -->
 		<script>
 			const quote = document.getElementById('quote');
 			const author = document.getElementById('author');
