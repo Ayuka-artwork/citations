@@ -111,16 +111,22 @@
 			let fontSize = 32;
 			let pressure = 0;
 
-			function explode() {
-				const elements = [quote, author, barContainer, barLabel];
-				elements.forEach(el => {
-					el.style.transition = 'all 1s ease';
-					el.style.opacity = 0;
-					el.style.transform = `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*200}px) rotate(${(Math.random()-0.5)*60}deg) scale(0.5)`;
+				function explode() {
+			const elements = [quote, author, barContainer, barLabel];
+			elements.forEach(el => {
+				el.style.transition = 'all 1s ease';
+				el.style.opacity = 0;
+				el.style.transform = `translate(${(Math.random()-0.5)*200}px, ${(Math.random()-0.5)*200}px) rotate(${(Math.random()-0.5)*60}deg) scale(0.5)`;
 			});
-				button.textContent = 'Reset';
-				button.style.backgroundColor = '#00bfff';
-			}
+
+			button.textContent = 'Reset';
+			button.style.backgroundColor = '#00bfff';
+
+			// Anti-spam : le reset est cliquable seulement après l'explosion
+			button.disabled = true;
+			setTimeout(() => { button.disabled = false; }, 1200);
+		}
+
 
 			function reset() {
 				fontSize = 32;
