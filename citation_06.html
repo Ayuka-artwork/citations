@@ -49,7 +49,7 @@
 			border: none;
 			border-radius: 999px;
 			box-shadow: inset 0px 2px 0px rgba(0, 0, 0, 0.1);
-			color: inherit
+			color: inherit;
 			font-size: 1rem;
 			letter-spacing: 0.03em;
 			font-family: inherit;
@@ -58,12 +58,11 @@
 		}
 
 		button:hover {
-			background: rgba(0, 0, 0, 0.2);
 			transform: translateY(-2px);
 		}
-
 	</style>
 </head>
+
 <body>
 	<div class="quote-container">
 		<h1 id="quote">“Change tes pensées et tu changeras ton monde.”</h1>
@@ -71,7 +70,7 @@
 	</div>
 	
 	<!-- //////////////////////////////////////////////// -->
-    <!-- everything below this is done with Chatgpt, don't look at it, it might hurt your eyes idk haha-->
+	<!-- everything below this is done with Chatgpt, don't look at it, it might hurt your eyes idk haha-->
 	<script>
 		const quote = document.getElementById("quote");
 		const btn = document.getElementById("colorBtn");
@@ -84,12 +83,12 @@
 			{ bg: "linear-gradient(135deg, #fffff0, #faf089)", text: "#744210" }
 		];
 
-		// Fonction pour foncer une couleur hex
-		function darken(hex, amount =20) {
+		// Fonce une couleur hex
+		function darken(hex, amount = 20) {
 			let c = hex.replace("#", "");
-			let r = parseInt(c.substring(0,2), 16);
-			let g = parseInt(c.substring(2,4), 16);
-			let b = parseInt(c.substring(4,6), 16);
+			let r = parseInt(c.substring(0, 2), 16);
+			let g = parseInt(c.substring(2, 4), 16);
+			let b = parseInt(c.substring(4, 6), 16);
 
 			r = Math.max(r - amount, 0);
 			g = Math.max(g - amount, 0);
@@ -98,19 +97,45 @@
 			return `rgb(${r}, ${g}, ${b})`;
 		}
 
+		// Éclaircit une couleur hex
+		function lighten(hex, amount = 40) {
+			let c = hex.replace("#", "");
+			let r = parseInt(c.substring(0, 2), 16);
+			let g = parseInt(c.substring(2, 4), 16);
+			let b = parseInt(c.substring(4, 6), 16);
+
+			r = Math.min(r + amount, 255);
+			g = Math.min(g + amount, 255);
+			b = Math.min(b + amount, 255);
+
+			return `rgb(${r}, ${g}, ${b})`;
+		}
+
+		let lastIndex = -1;
+
 		btn.addEventListener("click", () => {
-			const random = colors[Math.floor(Math.random() * colors.length)];
+			let index;
+
+			// Empêche d'avoir la même couleur deux fois d'affilée
+			do {
+				index = Math.floor(Math.random() * colors.length);
+			} while (index === lastIndex);
+
+			lastIndex = index;
+
+			const random = colors[index];
 
 			document.body.style.background = random.bg;
-			quote.style.color = random.text;
-			btn.style.color = random.text;
 
-			// Fond plus foncé pour le bouton
-			btn.style.background = darken(random.text, 40);
+			// Texte éclairci
+			const lighter = lighten(random.text, 80);
+			quote.style.color = lighter;
+			btn.style.color = lighter;
+
+			// Fond du bouton foncé
+			btn.style.background = darken(random.text, 1);
 		});
 	</script>
-
-
 
 	<nav id="projectnav"><a href="index.html">home</a></nav>
 	<link rel="stylesheet" href="projectnav.css">
