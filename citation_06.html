@@ -26,7 +26,7 @@
 			backdrop-filter: blur(15px);
 			-webkit-backdrop-filter: blur(15px);
 			border-radius: 1.5rem;
-			border: 1px solid rgba(255, 255, 255, 0.4);
+			border: 1px solid rgba(255, 255, 255, 0.103);
 			padding: 2.5rem 3rem;
 			max-width: 50ch;
 			box-shadow: 0 4px 0px rgba(0, 0, 0, 0.03);
@@ -48,9 +48,8 @@
 			padding: 0.7rem 1.5rem;
 			border: none;
 			border-radius: 999px;
-			background: rgba(0, 0, 0, 0.1);
 			box-shadow: inset 0px 2px 0px rgba(0, 0, 0, 0.1);
-			color: white;
+			color: inherit
 			font-size: 1rem;
 			letter-spacing: 0.03em;
 			font-family: inherit;
@@ -85,12 +84,33 @@
 			{ bg: "linear-gradient(135deg, #fffff0, #faf089)", text: "#744210" }
 		];
 
+		// Fonction pour foncer une couleur hex
+		function darken(hex, amount =20) {
+			let c = hex.replace("#", "");
+			let r = parseInt(c.substring(0,2), 16);
+			let g = parseInt(c.substring(2,4), 16);
+			let b = parseInt(c.substring(4,6), 16);
+
+			r = Math.max(r - amount, 0);
+			g = Math.max(g - amount, 0);
+			b = Math.max(b - amount, 0);
+
+			return `rgb(${r}, ${g}, ${b})`;
+		}
+
 		btn.addEventListener("click", () => {
 			const random = colors[Math.floor(Math.random() * colors.length)];
+
 			document.body.style.background = random.bg;
 			quote.style.color = random.text;
+			btn.style.color = random.text;
+
+			// Fond plus foncé pour le bouton
+			btn.style.background = darken(random.text, 40);
 		});
 	</script>
+
+
 
 	<nav id="projectnav"><a href="index.html">home</a></nav>
 	<link rel="stylesheet" href="projectnav.css">
