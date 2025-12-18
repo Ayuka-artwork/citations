@@ -1,7 +1,7 @@
-#projectnav {
+#back {
 	position: fixed; 
 	top: 20px;
-	left: 20px;
+	left: 110px;
 	padding: 0;
 	border-radius: 999px;
 	font-family: "Public Sans", sans-serif;
@@ -10,12 +10,12 @@
 	background: rgba(34,34,34,0.85);
 }
 
-#projectnav:hover {
+#back:hover {
 	background: rgba(34,34,34,1);
 	transform: translateY(-2px);
 }
 
-#projectnav a {
+#back a {
 	display: inline-block;
 	padding: 0.6rem 1.2rem; 
 	color: white;
